@@ -1,0 +1,21 @@
+<img src="" alt="">
+<h1>Eat Da Burger</h1>
+
+<ul>
+  {{#each burger}}
+    <li>
+      <p><span class="label">ID</span>{{this.id}}</p>
+      <p><span>Quote:</span>{{this.burger_name}}</p>
+      <button type="button" name="button"></button>
+    </li>
+  {{/each}}
+</ul>
+
+
+<form class="create-update-form" action="/{{this.id}}?_method=PUT" method="POST">
+  <div class="form-group">
+    <label for="quo">Quote:</label>
+    <textarea id="quo" name="quote" rows="8" cols="40">{{this.quote}}</textarea>
+  </div>
+  <button type="submit">submit</button>
+</form>
