@@ -1,10 +1,10 @@
 var express = require("express");
 var router = express.Router();
 
-var cat = require("../models/burger.js");
+var burger = require("../models/burger.js");
 
 router.get("/", function(req, res) {
-  cat.all(function(data) {
+  burger.all(function(data) {
     var hbsObject = {
       cats: data
     };
@@ -12,7 +12,3 @@ router.get("/", function(req, res) {
     res.render("index", hbsObject);
   });
 });
-
-router.get("/", function(req,res) {
-
-})
