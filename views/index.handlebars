@@ -1,21 +1,37 @@
-<img src="" alt="">
-<h1>Eat Da Burger</h1>
-
-<ul>
-  {{#each burger}}''
-    <li>
-      <p><span class="label">ID</span>{{this.id}}</p>
-      <p><span>Quote:</span>{{this.burger_name}}</p>
-      <button type="button" name="button" class="btn"></button>
-    </li>
-  {{/each}}
-</ul>
-
-
-<form class="create-update-form" action="/{{this.id}}?_method=PUT" method="POST">
-  <div class="form-group">
-    <label for="quo">Quote:</label>
-    <textarea id="quo" name="quote" rows="8" cols="40">{{this.quote}}</textarea>
+<div class="container-fluid">
+  <div class="row">
+    <div>
+      <img src="" alt="">
+      <h1>Eat Da Burger</h1>
+    </div>
   </div>
-  <button type="submit">submit</button>
-</form>
+  <div class="row">
+    <div class="col-md-6">
+      <ul>
+        {{#each burger}}
+          {{#unless this.devoured}}
+            <li>
+              {{this.burger_name}}
+              <form action="/{{this.id}}?_method=PUT" method="POST">
+                <input type="hidden" name="devoured" value="true">
+                <button type="submit">Devoured</button>
+              </form>
+            </li>
+          {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <ul>
+        {{#each burger}}
+          {{#if this.devoured}}
+            <li>
+              {{this.burger_name}}
+            </li>
+          {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>
+
