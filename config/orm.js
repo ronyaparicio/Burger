@@ -1,4 +1,4 @@
-
+var connection = require('./connection.js')
 
 var orm = {
   selectAll: function(tableInput,colToSearch, valOfCol) {
@@ -11,4 +11,4 @@ var orm = {
   updateOne: function() {}
 }
 
-module.export(orm);
+module.exports = orm;
